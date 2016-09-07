@@ -3,11 +3,6 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Cliente/socketClient.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Cliente/socketClient.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Headers/json.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Servidor/socketServer.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Servidor/socketServer.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />

@@ -67,10 +67,10 @@ int main(int argv, char** argc){
     addr_size = sizeof(sockaddr_in);
 
     while(true){
-        printf("Esperando una connecion\n");
+        printf("Esperando una Conexion\n");
         csock = (int*)malloc(sizeof(int));
         if((*csock = accept( hsock, (sockaddr*)&sadr, &addr_size))!= -1){
-            printf("---------------------\nConexion recivida de  %s\n",inet_ntoa(sadr.sin_addr));
+            printf("---------------------\nConexion recivida de %s\n",inet_ntoa(sadr.sin_addr));
             pthread_create(&thread_id,0,&SocketHandler, (void*)csock );
             pthread_detach(thread_id);
         }
@@ -99,16 +99,16 @@ void* SocketHandler(void* lp){
 
 
     printf("Bytes recividos %d\nMensaje recivido \"%s\"\nDe %s\n", bytecount, buffer,inet_ntoa(sadr.sin_addr));
-    //strcat(buffer, " SERVER ECHO");
+    strcat(buffer, " SERVER ECHO");
 
-/*
+
     if((bytecount = send(*csock, buffer, strlen(buffer), 0))== -1){
         fprintf(stderr, "Error al responder data %d\n", errno);
         goto FINISH;
     }
-*/
 
-    cout << buffer << endl;
+
+
     printf("Sent bytes %d\n", bytecount);
 
 
