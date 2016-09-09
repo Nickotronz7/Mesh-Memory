@@ -1,10 +1,15 @@
- #include <json.hpp>
+#include <json.hpp>
+#include "base64.h"
+#include <string>
+#include <stdio.h>
 
- using namespace std;
+
+using namespace std;
 using json = nlohmann::json;
 
  int main()
  {
+     /*
      // a JSON text
      std::string text = R"(
          {
@@ -44,7 +49,13 @@ using json = nlohmann::json;
 
      // parse (with callback) and serialize JSON
      json j_filtered = json::parse(text, cb);
-     std::cout << std::setw(4) << j_filtered << '\n';
+     std::cout << std::setw(4) << j_complete << '\n';
 
+     cout << j_complete << endl;
+     */
+
+     string code = "SG9sYSBlc3RvIGVzIHVuYSBwcnVlYmEgOkQ=";
+
+     cout << decode(code) << endl;
      return 0;
 }
