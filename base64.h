@@ -8,7 +8,7 @@
 
 using namespace std;
 
-string encode(unsigned char const*, unsigned int len);
+string encode(string, unsigned int len);
 string decode(string const& code);
 
 #endif //MESH_MEMORY_BASE64_H
