@@ -54,9 +54,8 @@ using json = nlohmann::json;
      cout << j_complete << endl;
      */
 
-     string code = "Nickotronz7";
 
-     code = encode(code, code.length());
-     cout << "Codigo decodificado: " << code << endl;
+
+
      return 0;
 }

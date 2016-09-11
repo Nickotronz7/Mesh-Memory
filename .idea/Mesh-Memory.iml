@@ -5,8 +5,8 @@
       <sourceFolder url="file://$MODULE_DIR$/base64.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Manager.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Manager.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/xReference.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/xReference.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/base64.h" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
