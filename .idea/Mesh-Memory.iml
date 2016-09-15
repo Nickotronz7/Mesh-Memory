@@ -3,8 +3,12 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/base64.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Servidor/server.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Servidor/server.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Cliente/client.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Cliente/client.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/xReference.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/xReference.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/base64.h" isTestSource="false" />

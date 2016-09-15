@@ -3,8 +3,7 @@
 //
 
 #include "xReference.h"
-
-class xReference {
+/*
 
     int xReference::getSize(xReference ref)
     {
@@ -41,7 +40,7 @@ class xReference {
     {
 
     }
-    */
+
 
     char* xReference::initialize(char *host, int port)
     {
@@ -56,5 +55,4 @@ class xReference {
     void xReference::xFree(xReference toFree)
     {
 
-    }
-};
+    }*/

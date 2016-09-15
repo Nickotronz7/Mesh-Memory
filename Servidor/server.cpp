@@ -7,14 +7,18 @@
 #include <arpa/inet.h>
 #include <pthread.h>
 #include <iostream>
+#include <rapidjson/document.h>
+#include <rapidjson/stringbuffer.h>
+#include <rapidjson/prettywriter.h>
 
 using namespace std;
+using namespace rapidjson;
 
 void* SocketHandler(void*);
 
 sockaddr_in sadr;
 
-int main(int argv, char** argc){
+void server(){
 
     int host_port= 1101;
 
@@ -33,7 +37,7 @@ int main(int argv, char** argc){
     hsock = socket(AF_INET, SOCK_STREAM, 0);
     if(hsock == -1){
         printf("Error iniciando el socket %d\n", errno);
-        goto FINISH;
+         ;
     }
 
     p_int = (int*)malloc(sizeof(int));
@@ -43,7 +47,7 @@ int main(int argv, char** argc){
         (setsockopt(hsock, SOL_SOCKET, SO_KEEPALIVE, (char*)p_int, sizeof(int)) == -1 ) ){
         printf("Error al setear las opciones %d\n", errno);
         free(p_int);
-        goto FINISH;
+         ;
     }
     free(p_int);
 
@@ -55,11 +59,11 @@ int main(int argv, char** argc){
 
     if( bind( hsock, (sockaddr*)&my_addr, sizeof(my_addr)) == -1 ){
         fprintf(stderr,"Error uniendo al socket, asegurece de que el puerto esta libre %d\n",errno);
-        goto FINISH;
+         ;
     }
     if(listen( hsock, 10) == -1 ){
         fprintf(stderr, "Error al escuchar %d\n",errno);
-        goto FINISH;
+         ;
     }
 
     //Now lets do the Server stuff
@@ -78,13 +82,10 @@ int main(int argv, char** argc){
             fprintf(stderr, "Error al aceptar conexion %d\n", errno);
         }
     }
-
-    FINISH:
-    ;
 }
 
-void* SocketHandler(void* lp){
-    int *csock = (int*)lp;
+void* SocketHandler(void* lp) {
+    int *csock = (int *) lp;
 
     int buffer_len = 1024;
     char buffer[buffer_len];
@@ -92,11 +93,25 @@ void* SocketHandler(void* lp){
 
     memset(buffer, 0, buffer_len);
 
-    if((bytecount = recv(*csock, buffer, buffer_len, 0))== -1){
+    if ((bytecount = recv(*csock, buffer, buffer_len, 0)) == -1) {
         fprintf(stderr, "Error al recivir data %d\n", errno);
-        goto FINISH;
+    }
+/*
+    Document document;
+    document.Parse(buffer);
+
+    {
+        Value& a = document["a"];   // This time we uses non-const reference.
+        Document::AllocatorType& allocator = document.GetAllocator();
+        for (int i = 5; i <= 10; i++)
+            a.PushBack(i, allocator);
     }
 
+    StringBuffer sb;
+    PrettyWriter<StringBuffer> writer(sb);
+    document.Accept(writer);
+    puts(sb.GetString());
+*/
 
     printf("Bytes recividos %d\nMensaje recivido \"%s\"\nDe %s\n", bytecount, buffer,inet_ntoa(sadr.sin_addr));
     strcat(buffer, " SERVER ECHO");
@@ -104,15 +119,13 @@ void* SocketHandler(void* lp){
 
     if((bytecount = send(*csock, buffer, strlen(buffer), 0))== -1){
         fprintf(stderr, "Error al responder data %d\n", errno);
-        goto FINISH;
+         ;
     }
 
-
-
+    
     printf("Sent bytes %d\n", bytecount);
 
 
-    FINISH:
+       
     free(csock);
-    return 0;
 }

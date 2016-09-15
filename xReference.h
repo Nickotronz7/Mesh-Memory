@@ -2,15 +2,15 @@
 // Created by nicko on 10/09/16.
 //
 
-#ifndef MESH_MEMORY_XREFERENCE_H
+/*#ifndef MESH_MEMORY_XREFERENCE_H
 #define MESH_MEMORY_XREFERENCE_H
 
 
-template <class A_Type> class xReference {
+class xReference {
 
-    bool xReference::operator==(xReference &refer);
+    bool operator==(xReference &refer);
 
-    int xReference::operator *();
+    int operator *();
 
     void operator=();
 
@@ -32,3 +32,4 @@ private:
 
 
 #endif //MESH_MEMORY_XREFERENCE_H
+*/
