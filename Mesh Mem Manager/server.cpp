@@ -96,36 +96,15 @@ void* SocketHandler(void* lp) {
     if ((bytecount = recv(*csock, buffer, buffer_len, 0)) == -1) {
         fprintf(stderr, "Error al recivir data %d\n", errno);
     }
-/*
-    Document document;
-    document.Parse(buffer);
-
-    {
-        Value& a = document["a"];   // This time we uses non-const reference.
-        Document::AllocatorType& allocator = document.GetAllocator();
-        for (int i = 5; i <= 10; i++)
-            a.PushBack(i, allocator);
-    }
-
-    StringBuffer sb;
-    PrettyWriter<StringBuffer> writer(sb);
-    document.Accept(writer);
-    puts(sb.GetString());
-*/
 
     printf("Bytes recividos %d\nMensaje recivido \"%s\"\nDe %s\n", bytecount, buffer,inet_ntoa(sadr.sin_addr));
     strcat(buffer, " SERVER ECHO");
 
-
     if((bytecount = send(*csock, buffer, strlen(buffer), 0))== -1){
         fprintf(stderr, "Error al responder data %d\n", errno);
-         ;
     }
-
     
     printf("Sent bytes %d\n", bytecount);
-
-
        
     free(csock);
 }
