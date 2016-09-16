@@ -2,7 +2,9 @@
 // Created by nicko on 10/09/16.
 //
 
-/*#ifndef MESH_MEMORY_XREFERENCE_H
+
+/*
+#ifndef MESH_MEMORY_XREFERENCE_H
 #define MESH_MEMORY_XREFERENCE_H
 
 
@@ -20,7 +22,7 @@ public:
     int getSize(xReference);
     int* getValue(xReference);
     char* initialize(char*, int);
-    //xReference xMalloc(int, xType, void*);
+    xReference xMalloc(int, auto, void*);
     void xAssing(xReference, void*);
     void xFree(xReference);
 
@@ -32,4 +34,5 @@ private:
 
 
 #endif //MESH_MEMORY_XREFERENCE_H
+
 */

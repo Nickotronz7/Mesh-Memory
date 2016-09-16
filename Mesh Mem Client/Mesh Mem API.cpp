@@ -2,8 +2,9 @@
 // Created by nicko on 10/09/16.
 //
 
-#include "Mesh Mem API.h"
 /*
+
+#include "Mesh Mem API.h"
 
     int xReference::getSize(xReference ref)
     {
@@ -35,8 +36,8 @@
       return (ref.size != getSize(ref)) || (ref.value != getValue(ref));
     }
 
-    /*
-    xReference xReference::xMalloc(int size, xType type, void* value)
+
+    xReference xReference::xMalloc(int size, auto type, void* value)
     {
 
     }
@@ -55,4 +56,7 @@
     void xReference::xFree(xReference toFree)
     {
 
-    }*/
+    }
+
+
+*/

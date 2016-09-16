@@ -13,46 +13,34 @@
 using namespace std;
 using namespace rapidjson;
 
+template <class xType> class Example
+{
+public:
+    xType producto(xType x, xType y);
+    xType add(xType x, xType y);
+};
 
+template <class xType> xType Example<xType>::producto(xType x, xType y)
+{
+    return x*y;
+}
 
-int main(int, char*[]) {
+template <class xType> xType Example<xType>::add(xType x, xType y)
+{
+    return x+y;
+}
+int main()
+{
+    /*
+    Example<int> holint;
+    Example<float> holif;
 
-/*
-    Document json;
-    json.SetObject();
-
-    rapidjson::Document::AllocatorType& allocator = json.GetAllocator();
-
-    size_t size = allocator.Size();
-
-    json.AddMember("Nickotronz7", true, allocator);
-    json.AddMember("ChrisRC7", true, allocator);
-    json.AddMember("Ulfrancito", true, allocator);
-
-    Value Descri(kArrayType);
-    Value obj(kObjectType);
-    Value obj2(kObjectType);
-    Value value(kObjectType);
-
-    obj.AddMember("Cantidad", 3, allocator);
-
-    string description = "Son los mejores del mundo";
-    value.SetString(description.c_str(), static_cast<SizeType>(description.length()));
-    obj.AddMember("Description", value, allocator);
-
-    Descri.PushBack(obj, allocator);
-
-    obj2.AddMember("Prueba", ":D", allocator);
-    Descri.PushBack(obj2, allocator);
-    json.AddMember("Pruebas", Descri, allocator);
-
-    StringBuffer jsonStr;
-    PrettyWriter<StringBuffer> writer(jsonStr);
-    json.Accept(writer);
-
-    puts(jsonStr.GetString());
+    cout << holint.add(2, 19) << endl;
+    cout << holif.add(3.14, 2.17) << endl;
+    cout << holint.producto(2, 19) << endl;
+    cout << holif.producto(3.14, 2.17) << endl;
     */
-
+    
     server();
 
     return 0;

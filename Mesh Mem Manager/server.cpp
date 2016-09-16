@@ -71,7 +71,7 @@ void server(){
     addr_size = sizeof(sockaddr_in);
 
     while(true){
-        printf("Esperando una Conexion\n");
+        printf("Esperando una Conexion al puerto %i\n", host_port);
         csock = (int*)malloc(sizeof(int));
         if((*csock = accept( hsock, (sockaddr*)&sadr, &addr_size))!= -1){
             printf("---------------------\nConexion recivida de %s\n",inet_ntoa(sadr.sin_addr));
@@ -103,7 +103,7 @@ void* SocketHandler(void* lp) {
     if((bytecount = send(*csock, buffer, strlen(buffer), 0))== -1){
         fprintf(stderr, "Error al responder data %d\n", errno);
     }
-    
+
     printf("Sent bytes %d\n", bytecount);
        
     free(csock);
