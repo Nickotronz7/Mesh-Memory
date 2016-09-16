@@ -31,7 +31,7 @@ template <class xType> xType Example<xType>::add(xType x, xType y)
 }
 int main()
 {
-    /*
+
     Example<int> holint;
     Example<float> holif;
 
@@ -39,8 +39,8 @@ int main()
     cout << holif.add(3.14, 2.17) << endl;
     cout << holint.producto(2, 19) << endl;
     cout << holif.producto(3.14, 2.17) << endl;
-    */
-    
+
+
     server();
 
     return 0;
