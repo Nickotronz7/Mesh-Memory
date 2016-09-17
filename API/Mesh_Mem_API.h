@@ -7,6 +7,7 @@
 
 #include "xReference.h"
 
+
 template <class xType>
 class Mesh_Mem_API
 {
@@ -14,8 +15,11 @@ public:
     char* initialize(char* host, int port);
     xReference<xType> xMalloc(int size, xType type);
     xReference<xType> xMalloc(int size, xType type, void* value);
-    void xAssing(xReference reference, void* value);
-    void xFree(xReference toFree);
+
+    /*
+    bool xAssing(xReference reference, void* value);
+    bool xFree(xReference toFree);
+    */
 
 };
 

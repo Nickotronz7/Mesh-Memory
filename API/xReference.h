@@ -15,7 +15,7 @@ public:
 
     int operator * (const xReference& refer) const;
     bool operator == (const xReference& refer) const;
-    int operator= (int& ref_num, int num) const;
+    int operator= (int& ref_num) const;
     bool operator != (const xReference& refer) const;
 
     int getSize() const;

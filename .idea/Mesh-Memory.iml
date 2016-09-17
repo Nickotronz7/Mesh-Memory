@@ -8,10 +8,9 @@
       <sourceFolder url="file://$MODULE_DIR$/Application/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Application/base64.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/API/xReference.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/API/Mesh_Mem_API.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/API/Mesh_Mem_API.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/API/xReference.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/API/xReference.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Mesh Mem Manager/server.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Mesh Mem Manager/server.h" isTestSource="false" />
     </content>
@@ -19,15 +18,19 @@
     <orderEntry type="module-library">
       <library name="Header Search Paths">
         <CLASSES>
+          <root url="file:///usr/include" />
+          <root url="file:///usr/lib/x86_64-linux-gnu/dbus-1.0/include" />
+          <root url="file:///usr/lib/x86_64-linux-gnu/glib-2.0/include" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include" />
-          <root url="file:///usr/include" />
           <root url="file:///usr/local/include" />
         </CLASSES>
         <SOURCES>
+          <root url="file:///usr/include" />
+          <root url="file:///usr/lib/x86_64-linux-gnu/dbus-1.0/include" />
+          <root url="file:///usr/lib/x86_64-linux-gnu/glib-2.0/include" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
           <root url="file:///usr/lib/gcc/x86_64-linux-gnu/5/include" />
-          <root url="file:///usr/include" />
           <root url="file:///usr/local/include" />
         </SOURCES>
       </library>
