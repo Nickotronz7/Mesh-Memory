@@ -26,13 +26,14 @@ public:
     void setSize(int size);
     xType getType() const;
     void setType(xType type);
-    xType getValue() const;
+    xType* getValue() const;
+    void setValue(void* val);
 
 private:
     float ID;
     int size;
     xType type;
-    xType value;
+    xType* value;
 
 };
 /*
@@ -72,6 +73,12 @@ template <class xType>
 void xReference<xType>::setType(xType ntype)
 {
     this->type = ntype;
+}
+
+template <class xType>
+void xReference<xType>::setValue(void* val)
+{
+    this->value = val;
 }
 
 template <class xType>

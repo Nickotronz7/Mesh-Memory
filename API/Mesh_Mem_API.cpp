@@ -13,14 +13,13 @@ using namespace rapidjson;
 
 char* initialize(char* host_name, int host_port)
 {
-//////////////////////////////////////////////////
+
     /*
     char json[] = " { \"token\" : \"NULL\" } ";
     char buffer[sizeof(json)];
     memcpy(buffer,json,sizeof(json));
     buffer[sizeof(json) - 1 ] = 0;
      */
-//////////////////////////////////////////////////
 
     struct sockaddr_in my_addr;
 
@@ -80,13 +79,21 @@ char* initialize(char* host_name, int host_port)
 template <typename xType>
 xReference<xType> xMalloc(int size, xType type)
 {
-
+    xReference<xType> Ref();
+    Ref().setSize(size);
+    Ref().setType(type);
+    return Ref();
 }
 
 template <typename xType>
 xReference<xType> xMalloc(int size, xType type, void* value)
 {
-
+    xReference<xType> Ref();
+    Ref().setSize(size);
+    Ref().setType(type);
+    Ref().setValue(value);
+    free(value);
+    return Ref();
 }
 
 template <typename xType>
