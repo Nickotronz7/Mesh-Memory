@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Mesh-Memory.iml" filepath="$PROJECT_DIR$/.idea/Mesh-Memory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Mesh-Mem-Client/.idea/Mesh-Memory.iml" filepath="$PROJECT_DIR$/../Mesh-Mem-Client/.idea/Mesh-Memory.iml" />
     </modules>
   </component>
 </project>
