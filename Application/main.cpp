@@ -14,6 +14,7 @@ using namespace rapidjson;
 
 int main()
 {
+    /*
     int Max_Size = 1024;
     char json[] = "{\n"
             "    \"Nicko\": \"Guapo\", \n"
@@ -47,6 +48,7 @@ int main()
     PrettyWriter<StringBuffer> writer(sb);
     document.Accept(writer);
     puts(sb.GetString());
+     */
     //server();
     //client();
 
