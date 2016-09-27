@@ -8,18 +8,19 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <zconf.h>
+#include "Mesh_Mem_API.h"
 
 using namespace rapidjson;
 
+/**
+ * Se hace un contacto con el manager para asi conseguir un token
+ * para todas la comunicaciones posteriores
+ * @param host_name
+ * @param host_port
+ * @return token
+ */
 char* initialize(char* host_name, int host_port)
 {
-
-    /*
-    char json[] = " { \"token\" : \"NULL\" } ";
-    char buffer[sizeof(json)];
-    memcpy(buffer,json,sizeof(json));
-    buffer[sizeof(json) - 1 ] = 0;
-     */
 
     struct sockaddr_in my_addr;
 
@@ -31,6 +32,9 @@ char* initialize(char* host_name, int host_port)
     int * p_int;
     int err;
 
+    /**
+     * Abre el socket
+     */
     hsock = socket(AF_INET, SOCK_STREAM, 0);
     if(hsock == -1)
     {
@@ -56,6 +60,9 @@ char* initialize(char* host_name, int host_port)
     memset(&(my_addr.sin_zero), 0, 8);
     my_addr.sin_addr.s_addr = inet_addr(host_name);
 
+    /**
+     * Establece una coneccion con el manager
+     */
     if( connect( hsock, (struct sockaddr*)&my_addr, sizeof(my_addr)) == -1 )
     {
         if((err = errno) != EINPROGRESS)
@@ -65,6 +72,9 @@ char* initialize(char* host_name, int host_port)
         }
     }
 
+    /**
+     * Recive el token para las demas comunicacciones
+     */
     if ((bytecount = recv(hsock, buffer, buffer_len, 0)) == -1)
     {
         fprintf(stderr, "Error reciving data %d\n", errno);
@@ -76,6 +86,12 @@ char* initialize(char* host_name, int host_port)
     close(hsock);
 }
 
+/**
+ *
+ * @param size
+ * @param type
+ * @return xReference instance que contiene el ID, size, type
+ */
 template <typename xType>
 xReference<xType> xMalloc(int size, xType type)
 {
@@ -85,23 +101,41 @@ xReference<xType> xMalloc(int size, xType type)
     return Ref();
 }
 
+/**
+ * Igual que la anterior pero recibe el value que es un apuntador
+ * hacia el valor a copiar
+ * @param size
+ * @param type
+ * @param value
+ * @return xReference instance que contiene el ID, size, type
+ */
 template <typename xType>
 xReference<xType> xMalloc(int size, xType type, void* value)
 {
     xReference<xType> Ref();
     Ref().setSize(size);
     Ref().setType(type);
-    Ref().setValue(value);
     free(value);
     return Ref();
 }
 
+/**
+ * Asigna el valor al espacio apuntado por reference y lo libera despues de eso
+ * @param reference
+ * @param value
+ */
 template <typename xType>
 void xAssing(xReference<xType> reference, void* value)
 {
-
+    const char json[] = "{ \"Reference\" : \"reference\", \"Value\" : value }";
+    char buffer[1024];
+    memcpy(buffer, json, sizeof(json));
 }
 
+/**
+ * Contacta al Manager para liberar el espacio de memoria indicado
+ * @param toFree
+ */
 template <typename xType>
 void xFree(xReference<xType> toFree)
 {

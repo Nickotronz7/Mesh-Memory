@@ -7,6 +7,7 @@
 
 
 #include <clocale>
+#include <uuid/uuid.h>
 
 template <class xType> class xReference
 {
@@ -21,21 +22,26 @@ public:
     bool operator != (const xReference& refer) const;
 
 
-    float getID() const;
+    void getID() const;
     int getSize() const;
     void setSize(int size);
     xType getType() const;
     void setType(xType type);
-    xType* getValue() const;
-    void setValue(void* val);
 
+/**
+ * ID: Identificador de memoria dentro del Mesh Memory
+ * size: tamaño del dato almacenado
+ * type: tipo del dato almacenado
+ * value: puntero al espacio de memoria que contiene el valor a almacenar
+ */
 private:
-    float ID;
+    uuid_t ID;
     int size;
     xType type;
     xType* value;
 
 };
+
 /*
 template <class xType>
 xReference<xType>::xReference()
@@ -45,46 +51,55 @@ xReference<xType>::xReference()
     this->type = NULL;
 }
 */
+
+/**
+ * Retorna el size
+ * @return
+ */
 template  <class xType>
 int xReference<xType>::getSize() const
 {
     return size;
 }
 
-template <class xType>
-xType xReference<xType>::getValue() const
-{
-    return value;
-}
-
+/**
+ * Modifica el atributo size
+ * @param nsize
+ */
 template <class xType>
 void xReference<xType>::setSize(int nsize)
 {
     this->size = nsize;
 }
 
+/**
+ * Retorna el tipo de dato apuntado por la xReference
+ * @return value
+ */
 template <class xType>
 xType xReference<xType>::getType() const
 {
     return type;
 }
 
+/**
+ * Cambia la etiqueta del tipo de dato
+ * @param ntype
+ */
 template <class xType>
 void xReference<xType>::setType(xType ntype)
 {
     this->type = ntype;
 }
 
+/**
+ * Retorna el ID del xReference que es lo que dice el lugar donde se almacena
+ * @return
+ */
 template <class xType>
-void xReference<xType>::setValue(void* val)
+void xReference<xType>::getID() const
 {
-    this->value = val;
-}
 
-template <class xType>
-float xReference<xType>::getID() const
-{
-    return ID;
 }
 
 #endif //MESH_MEMORY_XREFERENCE_H

@@ -2,18 +2,19 @@
  * Created by Nickotronz7
  */
 
-#include <gtk-3.0/gtk/gtk.h>
 #include <iostream>
 #include "../Mesh Mem Client/client.h"
 #include "../Mesh Mem Manager/server.h"
 #include <rapidjson/document.h>
 #include <rapidjson/stringbuffer.h>
 #include <rapidjson/prettywriter.h>
+#include <uuid/uuid.h>
 
-using namespace rapidjson;
+//using namespace rapidjson;
 
 int main()
 {
+
     /*
     int Max_Size = 1024;
     char json[] = "{\n"
@@ -51,6 +52,14 @@ int main()
      */
     //server();
     //client();
+
+    uuid_t id;
+    uuid_generate(id);
+
+    char *string = new char[100];
+    uuid_unparse(id, string);
+
+    cout << string << endl;
 
     return 0;
 }

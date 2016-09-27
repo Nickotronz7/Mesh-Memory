@@ -22,6 +22,9 @@
 
 using namespace std;
 
+/**
+ * Funcion encargada de manejar la comunicacion con el Mesh Manager
+ */
 void client()
 {
     int host_port= 1101;
