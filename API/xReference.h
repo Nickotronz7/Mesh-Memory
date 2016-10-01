@@ -13,12 +13,11 @@
 template <class xType> class xReference
 {
 public:
-    xReference();
 
-    void* operator * (const xReference& refer) const;
-    bool operator == (const xReference& refer) const;
+    void* operator * (const xReference& reference) const;
+    bool operator == (const xReference& reference) const;
     int operator = (int& ref_num) const;
-    bool operator != (const xReference& refer) const;
+    bool operator != (const xReference& reference) const;
 
 
     void getID() const;
@@ -27,6 +26,7 @@ public:
     xType getType() const;
     void setType(xType type);
     void* getValue() const;
+    void setID(uuid_t id);
 
 /**
  * ID: Identificador de memoria dentro del Mesh Memory
@@ -42,14 +42,6 @@ private:
 
 };
 
-
-
-template <class xType>
-xReference<xType>::xReference()
-{
-    this->size = NULL;
-    this->type = NULL;
-}
 
 /**
  * Retorna el size
@@ -105,6 +97,15 @@ template <class xType>
 void* xReference<xType>::getValue() const
 {
     return value;
+}
+
+template <class xType>
+void xReference<xType>::setID(unsigned char *id)
+{
+    for (int i = 0; i < sizeof(id); ++i)
+    {
+        this->ID[i] = id[i];
+    }
 }
 
 #endif //MESH_MEMORY_XREFERENCE_H

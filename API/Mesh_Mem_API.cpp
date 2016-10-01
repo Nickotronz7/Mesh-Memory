@@ -9,6 +9,7 @@
 #include <arpa/inet.h>
 #include <zconf.h>
 #include "Mesh_Mem_API.h"
+#include "../Mesh Mem Client/client.h"
 
 using namespace rapidjson;
 
@@ -76,6 +77,15 @@ char* initialize(char* host_name, int host_port)
             initialize(host_name, host_port);
         }
     }
+    /**
+     * Envia la peticion al Manager para recivir el token
+     */
+
+    if( (bytecount=send(hsock, buffer, strlen(buffer),0))== -1)
+    {
+        fprintf(stderr, "Error sending data %d\n", errno);
+        exit(0);
+    }
 
     /**
      * Recive el token para las demas comunicacciones
@@ -100,10 +110,11 @@ char* initialize(char* host_name, int host_port)
 template <typename xType>
 xReference<xType> xMalloc(int size, xType type)
 {
-    xReference<xType> Ref();
-    Ref().setSize(size);
-    Ref().setType(type);
-    return Ref();
+    xReference<xType> Ref;
+    Ref.setSize(size);
+    Ref.setType(type);
+    //Ref.setID(id retornado por el manager);
+    return Ref;
 }
 
 /**
@@ -135,6 +146,7 @@ void xAssing(xReference<xType> reference, void* value)
     const char json[] = "{ \"Reference\" : \"reference\", \"Value\" : value }";
     char buffer[1024];
     memcpy(buffer, json, sizeof(json));
+    client(hostIP,hostPort, buffer);
 }
 
 /**

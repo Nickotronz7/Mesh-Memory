@@ -5,6 +5,7 @@
 #include <iostream>
 #include "../Mesh Mem Client/client.h"
 #include "../API/Mesh_Mem_API.h"
+#include "../API/xReference.h"
 #include <rapidjson/document.h>
 #include <rapidjson/stringbuffer.h>
 #include <rapidjson/prettywriter.h>
@@ -59,9 +60,10 @@ int main()
     char* hostIP = "127.0.0.1";
     int hostPort = 1011;
 
+
     //char* token = initialize(hostIP, hostPort);
 
-
+    /*
     uuid_t id;
     uuid_generate(id);
 
@@ -69,6 +71,7 @@ int main()
     uuid_unparse(id, string);
 
     cout << string << endl;
+    */
 
     return 0;
 }

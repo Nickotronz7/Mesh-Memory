@@ -2,11 +2,11 @@
 // Created by nicko on 14/09/16.
 //
 
-#include<stdio.h>
-#include<string.h>    //strlen
-#include<sys/socket.h>
-#include<arpa/inet.h> //inet_addr
-#include<unistd.h>    //write
+#include <stdio.h>
+#include <string.h>    //strlen
+#include <sys/socket.h>
+#include <arpa/inet.h> //inet_addr
+#include <unistd.h>    //write
 #include <stdlib.h>
 #include <errno.h>
 #include <array>
@@ -18,11 +18,11 @@ using namespace rapidjson;
 /**
  * Funcion encargada de manejar la comunicacion con el Mesh Manager
  */
-void client(char* host_name, int host_port, Document Json)
+void client(char* host_name, int host_port, char buffer[])
 {
     struct sockaddr_in my_addr;
 
-    char buffer[1024];
+    //char buffer[1024];
     int bytecount;
     int buffer_len=0;
 
@@ -70,8 +70,11 @@ void client(char* host_name, int host_port, Document Json)
 
     memset(buffer, '\0', buffer_len);
 
+    /*
     printf("Enter some text to send to the server (press enter)\n");
     fgets(buffer, 1024, stdin);
+    */
+
     buffer[strlen(buffer)-1]='\0';
 
     if( (bytecount=send(hsock, buffer, strlen(buffer),0))== -1)

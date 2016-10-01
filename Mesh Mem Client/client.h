@@ -5,6 +5,8 @@
 #ifndef MESH_MEMORY_CLIENT_H
 #define MESH_MEMORY_CLIENT_H
 
-void client();
+using namespace std;
+
+void client(char* host_name, int host_port, char buffer);
 
 #endif //MESH_MEMORY_CLIENT_H
