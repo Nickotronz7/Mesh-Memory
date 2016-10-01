@@ -146,6 +146,7 @@ void xAssing(xReference<xType> reference, void* value)
     const char json[] = "{ \"Reference\" : \"reference\", \"Value\" : value }";
     char buffer[1024];
     memcpy(buffer, json, sizeof(json));
+    free(value);
     //client(hostIP,hostPort, buffer);
 }
 
