@@ -4,13 +4,14 @@
 
 #include <iostream>
 #include "../Mesh Mem Client/client.h"
-#include "../Mesh Mem Manager/server.h"
+#include "../API/Mesh_Mem_API.h"
 #include <rapidjson/document.h>
 #include <rapidjson/stringbuffer.h>
 #include <rapidjson/prettywriter.h>
 #include <uuid/uuid.h>
 
 //using namespace rapidjson;
+using namespace std;
 
 int main()
 {
@@ -52,6 +53,14 @@ int main()
      */
     //server();
     //client();
+
+
+
+    char* hostIP = "127.0.0.1";
+    int hostPort = 1011;
+
+    //char* token = initialize(hostIP, hostPort);
+
 
     uuid_t id;
     uuid_generate(id);

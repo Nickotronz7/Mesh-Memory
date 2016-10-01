@@ -12,6 +12,11 @@
 
 using namespace rapidjson;
 
+char* hostIP = "127.0.0.1";
+int hostPort = 1011;
+
+//char* token = initialize(hostIP, hostPort);
+
 /**
  * Se hace un contacto con el manager para asi conseguir un token
  * para todas la comunicaciones posteriores

@@ -5,6 +5,8 @@
 #ifndef MESH_MEMORY_MESH_MEM_API_H
 #define MESH_MEMORY_MESH_MEM_API_H
 
+#include "../API/xReference.h"
+
 char* initialize(char* host_name, int host_port);
 template <typename xType>
 xReference<xType> xMalloc(int size, xType type);

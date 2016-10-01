@@ -7,29 +7,19 @@
 #include<sys/socket.h>
 #include<arpa/inet.h> //inet_addr
 #include<unistd.h>    //write
-#include <fcntl.h>
-#include <string.h>
 #include <stdlib.h>
 #include <errno.h>
-#include <stdio.h>
-#include <netinet/in.h>
-#include <resolv.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <unistd.h>
 #include <array>
-#include <iostream>
+#include <rapidjson/document.h>
 
 using namespace std;
+using namespace rapidjson;
 
 /**
  * Funcion encargada de manejar la comunicacion con el Mesh Manager
  */
-void client()
+void client(char* host_name, int host_port, Document Json)
 {
-    int host_port= 1101;
-    char* host_name = "192.168.1.112";
-
     struct sockaddr_in my_addr;
 
     char buffer[1024];

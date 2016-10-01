@@ -8,15 +8,14 @@
 
 #include <clocale>
 #include <uuid/uuid.h>
+#include <cstdlib>
 
 template <class xType> class xReference
 {
 public:
     xReference();
 
-
-
-    int operator * (const xReference& refer) const;
+    void* operator * (const xReference& refer) const;
     bool operator == (const xReference& refer) const;
     int operator = (int& ref_num) const;
     bool operator != (const xReference& refer) const;
@@ -27,6 +26,7 @@ public:
     void setSize(int size);
     xType getType() const;
     void setType(xType type);
+    void* getValue() const;
 
 /**
  * ID: Identificador de memoria dentro del Mesh Memory
@@ -38,19 +38,18 @@ private:
     uuid_t ID;
     int size;
     xType type;
-    xType* value;
+    void* value;
 
 };
 
-/*
+
+
 template <class xType>
 xReference<xType>::xReference()
 {
-    this->ID = NULL;
     this->size = NULL;
     this->type = NULL;
 }
-*/
 
 /**
  * Retorna el size
@@ -100,6 +99,12 @@ template <class xType>
 void xReference<xType>::getID() const
 {
 
+}
+
+template <class xType>
+void* xReference<xType>::getValue() const
+{
+    return value;
 }
 
 #endif //MESH_MEMORY_XREFERENCE_H
