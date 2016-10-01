@@ -157,5 +157,4 @@ void xAssing(xReference<xType> reference, void* value)
 template <typename xType>
 void xFree(xReference<xType> toFree)
 {
-
 }
