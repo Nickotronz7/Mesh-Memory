@@ -18,11 +18,11 @@ using namespace rapidjson;
 /**
  * Funcion encargada de manejar la comunicacion con el Mesh Manager
  */
-void client(char* host_name, int host_port, char buffer[])
+void client(char* host_name, int host_port, string msg)
 {
     struct sockaddr_in my_addr;
 
-    //char buffer[1024];
+    char buffer[1024];
     int bytecount;
     int buffer_len=0;
 
@@ -69,7 +69,7 @@ void client(char* host_name, int host_port, char buffer[])
     buffer_len = 1024;
 
     memset(buffer, '\0', buffer_len);
-
+    strncpy(buffer,msg.c_str(),sizeof(buffer));
     /*
     printf("Enter some text to send to the server (press enter)\n");
     fgets(buffer, 1024, stdin);

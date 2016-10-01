@@ -10,11 +10,9 @@
 #include <zconf.h>
 #include "Mesh_Mem_API.h"
 #include "../Mesh Mem Client/client.h"
+//#include "../Application/variables.h"
 
 using namespace rapidjson;
-
-char* hostIP = "127.0.0.1";
-int hostPort = 1011;
 
 //char* token = initialize(hostIP, hostPort);
 
@@ -25,6 +23,8 @@ int hostPort = 1011;
  * @param host_port
  * @return token
  */
+
+
 char* initialize(char* host_name, int host_port)
 {
 
@@ -146,7 +146,7 @@ void xAssing(xReference<xType> reference, void* value)
     const char json[] = "{ \"Reference\" : \"reference\", \"Value\" : value }";
     char buffer[1024];
     memcpy(buffer, json, sizeof(json));
-    client(hostIP,hostPort, buffer);
+    //client(hostIP,hostPort, buffer);
 }
 
 /**

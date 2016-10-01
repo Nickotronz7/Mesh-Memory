@@ -10,8 +10,10 @@
 #include <rapidjson/stringbuffer.h>
 #include <rapidjson/prettywriter.h>
 #include <uuid/uuid.h>
+#include "../Mesh Mem Client/Json.h"
+#include "../Application/variables.h"
 
-//using namespace rapidjson;
+using namespace rapidjson;
 using namespace std;
 
 int main()
@@ -55,15 +57,21 @@ int main()
     //server();
     //client();
 
+    /*char json[] = "{\"Token\" : \"0\", \"Size\" : \"0\", \"Type\" : \"\", \"ID\" : \"\"}";
+    Document document;
+    document.Parse(json);
+
+    document["Token"] = 8911652;
+    document["Size"] = 25;
+    document["Type"] = "int";
+    document["ID"] = "AbCd";
+
+    StringBuffer stringmsg;
+    PrettyWriter <StringBuffer> writer(stringmsg);
+    document.Accept(writer);
+    puts(stringmsg.GetString());
 
 
-    char* hostIP = "127.0.0.1";
-    int hostPort = 1011;
-
-
-    //char* token = initialize(hostIP, hostPort);
-
-    /*
     uuid_t id;
     uuid_generate(id);
 
@@ -72,6 +80,17 @@ int main()
 
     cout << string << endl;
     */
+
+    Json json;
+    Document document = json.create();
+
+    //cout << document["TipoAccion"].GetInt() +1 << endl;
+    StringBuffer msgjson;
+    PrettyWriter <StringBuffer> writer(msgjson);
+    document.Accept(writer);
+    string msgString = msgjson.GetString();
+
+    client(hostIP, hostPort, msgString);
 
     return 0;
 }

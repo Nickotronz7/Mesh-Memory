@@ -7,6 +7,6 @@
 
 using namespace std;
 
-void client(char* host_name, int host_port, char buffer);
+void client(char* host_name, int host_port, string msg);
 
 #endif //MESH_MEMORY_CLIENT_H
