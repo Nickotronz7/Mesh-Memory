@@ -11,6 +11,7 @@
 #include <errno.h>
 #include <array>
 #include <rapidjson/document.h>
+#include <iostream>
 
 using namespace std;
 using namespace rapidjson;
@@ -75,7 +76,7 @@ void client(char* host_name, int host_port, string msg)
     fgets(buffer, 1024, stdin);
     */
 
-    buffer[strlen(buffer)-1]='\0';
+    buffer[strlen(buffer)]='\0';
 
     if( (bytecount=send(hsock, buffer, strlen(buffer),0))== -1)
     {
@@ -84,6 +85,7 @@ void client(char* host_name, int host_port, string msg)
     }
 
     printf("Sent bytes %d\n", bytecount);
+    cout << buffer << endl;
 
     if((bytecount = recv(hsock, buffer, buffer_len, 0))== -1)
     {

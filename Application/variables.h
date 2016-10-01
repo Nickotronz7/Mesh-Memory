@@ -5,7 +5,7 @@
 #ifndef MESH_MEMORY_VARIABLES_H
 #define MESH_MEMORY_VARIABLES_H
 
-char* hostIP = "10.0.2.15";
+char* hostIP = "10.233.250.16";
 int hostPort = 5656;
 
 

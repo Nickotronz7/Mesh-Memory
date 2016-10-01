@@ -6,21 +6,23 @@
 #include "../Mesh Mem Client/client.h"
 #include "../API/Mesh_Mem_API.h"
 #include "../API/xReference.h"
+#include "../Mesh Mem Client/Json.h"
 #include <rapidjson/document.h>
+#include "../Application/variables.h"
 #include <rapidjson/stringbuffer.h>
 #include <rapidjson/prettywriter.h>
 #include <uuid/uuid.h>
 
-//using namespace rapidjson;
+using namespace rapidjson;
 using namespace std;
 
 int main()
 {
 
-    /*
+/*
     int Max_Size = 1024;
     char json[] = "{\n"
-            "    \"Nicko\": \"Guapo\", \n"
+            "    \"TipoAccion\": 1, \n"
             "    \"glossary\": {\n"
             "        \"title\": \"example glossary\",\n"
             "\t\t\"GlossDiv\": {\n"
@@ -46,22 +48,24 @@ int main()
     char buffer[sizeof(json)];
     memcpy(buffer,json,sizeof(json));
     document.Parse(json);
-    cout << document["Nicko"].GetString() << endl;
+    //cout << document["Nicko"].GetString() << endl;
     StringBuffer sb;
     PrettyWriter<StringBuffer> writer(sb);
     document.Accept(writer);
-    puts(sb.GetString());
-     */
-    //server();
-    //client();
-
-
-
-    char* hostIP = "127.0.0.1";
-    int hostPort = 1011;
-
+    */
 
     //char* token = initialize(hostIP, hostPort);
+
+    Json json;
+    Document doc = json.create();
+
+    StringBuffer sb;
+    PrettyWriter <StringBuffer> writer(sb);
+    doc.Accept(writer);
+    string msg = sb.GetString();
+
+
+    client(hostIP,hostPort, msg);
 
     /*
     uuid_t id;
