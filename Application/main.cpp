@@ -11,7 +11,7 @@
 #include <rapidjson/prettywriter.h>
 #include <uuid/uuid.h>
 
-//using namespace rapidjson;
+using namespace rapidjson;
 using namespace std;
 
 int main()
@@ -55,13 +55,19 @@ int main()
     //server();
     //client();
 
+    char json[] = "{\"Token\" : \"0\", \"Size\" : \"0\", \"Type\" : \"\", \"ID\" : \"\"}";
+    Document document;
+    document.Parse(json);
 
+    document["Token"] = 8911652;
+    document["Size"] = 25;
+    document["Type"] = "int";
+    document["ID"] = "AbCd";
 
-    char* hostIP = "127.0.0.1";
-    int hostPort = 1011;
-
-
-    //char* token = initialize(hostIP, hostPort);
+    StringBuffer stringmsg;
+    PrettyWriter <StringBuffer> writer(stringmsg);
+    document.Accept(writer);
+    puts(stringmsg.GetString());
 
     /*
     uuid_t id;
